@@ -678,7 +678,7 @@
 		}
 
 		if (!this.settings.loop) {
-			// non loop boundries
+
 			if (this.op(coordinate, '>', coordinates[this.minimum()])) {
 				position = coordinate = this.minimum();
 			} else if (this.op(coordinate, '<', coordinates[this.maximum()])) {
@@ -689,12 +689,7 @@
 		return position;
 	};
 
-	/**
-	 * Animates the stage.
-	 * @todo #270
-	 * @public
-	 * @param {Number} coordinate - The coordinate in pixels.
-	 */
+
 	Owl.prototype.animate = function(coordinate) {
 		var animate = this.speed() > 0;
 
@@ -723,21 +718,10 @@
 		}
 	};
 
-	/**
-	 * Checks whether the carousel is in a specific state or not.
-	 * @param {String} state - The state to check.
-	 * @returns {Boolean} - The flag which indicates if the carousel is busy.
-	 */
 	Owl.prototype.is = function(state) {
 		return this._states.current[state] && this._states.current[state] > 0;
 	};
 
-	/**
-	 * Sets the absolute position of the current item.
-	 * @public
-	 * @param {Number} [position] - The new absolute position or nothing to leave it unchanged.
-	 * @returns {Number} - The absolute position of the current item.
-	 */
 	Owl.prototype.current = function(position) {
 		if (position === undefined) {
 			return this._current;
@@ -766,11 +750,6 @@
 		return this._current;
 	};
 
-	/**
-	 * Invalidates the given part of the update routine.
-	 * @param {String} [part] - The part to invalidate.
-	 * @returns {Array.<String>} - The invalidated parts.
-	 */
 	Owl.prototype.invalidate = function(part) {
 		if ($.type(part) === 'string') {
 			this._invalidated[part] = true;
@@ -779,11 +758,6 @@
 		return $.map(this._invalidated, function(v, i) { return i });
 	};
 
-	/**
-	 * Resets the absolute position of the current item.
-	 * @public
-	 * @param {Number} position - The absolute position of the new item.
-	 */
 	Owl.prototype.reset = function(position) {
 		position = this.normalize(position);
 
@@ -801,13 +775,6 @@
 		this.release([ 'translate', 'translated' ]);
 	};
 
-	/**
-	 * Normalizes an absolute or a relative position of an item.
-	 * @public
-	 * @param {Number} position - The absolute or relative position to normalize.
-	 * @param {Boolean} [relative=false] - Whether the given position is relative or not.
-	 * @returns {Number} - The normalized position.
-	 */
 	Owl.prototype.normalize = function(position, relative) {
 		var n = this._items.length,
 			m = relative ? 0 : this._clones.length;
@@ -821,23 +788,13 @@
 		return position;
 	};
 
-	/**
-	 * Converts an absolute position of an item into a relative one.
-	 * @public
-	 * @param {Number} position - The absolute position to convert.
-	 * @returns {Number} - The converted position.
-	 */
+
 	Owl.prototype.relative = function(position) {
 		position -= this._clones.length / 2;
 		return this.normalize(position, true);
 	};
 
-	/**
-	 * Gets the maximum position for the current item.
-	 * @public
-	 * @param {Boolean} [relative=false] - Whether to return an absolute position or a relative position.
-	 * @returns {Number}
-	 */
+
 	Owl.prototype.maximum = function(relative) {
 		var settings = this.settings,
 			maximum = this._coordinates.length,
@@ -873,22 +830,12 @@
 		return Math.max(maximum, 0);
 	};
 
-	/**
-	 * Gets the minimum position for the current item.
-	 * @public
-	 * @param {Boolean} [relative=false] - Whether to return an absolute position or a relative position.
-	 * @returns {Number}
-	 */
+
 	Owl.prototype.minimum = function(relative) {
 		return relative ? 0 : this._clones.length / 2;
 	};
 
-	/**
-	 * Gets an item at the specified relative position.
-	 * @public
-	 * @param {Number} [position] - The relative position of the item.
-	 * @return {jQuery|Array.<jQuery>} - The item at the given position or all items if no position was given.
-	 */
+	
 	Owl.prototype.items = function(position) {
 		if (position === undefined) {
 			return this._items.slice();
