@@ -61,12 +61,12 @@ https://templatemo.com/tm-570-chain-app-dev
             <!-- ***** Logo End ***** -->
             <!-- ***** Menu Start ***** -->
             <ul class="nav">
-              <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
-              <li class="scroll-to-section"><a href="#services">Services</a></li>
-              <li class="scroll-to-section"><a href="#about">About</a></li>
-              <li class="scroll-to-section"><a href="#pricing">Pricing</a></li>
-              <li class="scroll-to-section"><a href="#newsletter">Newsletter</a></li>
-              <li><div class="gradient-button"><a id="modal_trigger" href="#modal"><i class="fa fa-sign-in-alt"></i> Sign In Now</a></div></li> 
+              <li class="scroll-to-section"><a href="#top" class="active">Beranda</a></li>
+              <li class="scroll-to-section"><a href="#services">PPDB DINDIKBUD</a></li>
+              <li class="scroll-to-section"><a href="#about">SI-MADA</a></li>
+              <li class="scroll-to-section"><a href="#pricing">RAPOR DAPODIK</a></li>
+              <li class="scroll-to-section"><a href="#newsletter">PROGRES ARKAS Arkas</a></li>
+              <li><div class="gradient-button"><a id="modal_trigger" href="#modal"><i class="fa fa-sign-in-alt"></i> Ruang Diskusi</a></div></li> 
             </ul>        
             <a class='menu-trigger'>
                 <span>Menu</span>
@@ -92,6 +92,19 @@ https://templatemo.com/tm-570-chain-app-dev
                 <a href="#" class="social_box fb">
                     <span class="icon"><i class="fab fa-facebook"></i></span>
                     <span class="icon_title">Connect with Facebook</span>
+
+                    <div id="fb-root"></div>
+<script>
+   (function(d, s, id) {
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {
+       return;
+     }
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=APP_ID";
+     fjs.parentNode.insertBefore(js, fjs);
+   } (document, 'script', 'facebook-jssdk'));
+</script>
 
                 </a>
 
