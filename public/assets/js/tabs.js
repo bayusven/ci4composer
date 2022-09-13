@@ -8,20 +8,8 @@
 		factory( jQuery );
 	}
 }(function( $ ) {
-/*!
- * jQuery UI Core 1.11.2
- * http://jqueryui.com
- *
- * Copyright 2014 jQuery Foundation and other contributors
- * Released under the MIT license.
- * http://jquery.org/license
- *
- * http://api.jqueryui.com/category/ui-core/
- */
 
-
-// $.ui might exist from components with no dependencies, e.g., $.ui.position
-$.ui = $.ui || {};
+	$.ui = $.ui || {};
 
 $.extend( $.ui, {
 	version: "1.11.2",
@@ -46,7 +34,6 @@ $.extend( $.ui, {
 	}
 });
 
-// plugins
 $.fn.extend({
 	scrollParent: function( includeHidden ) {
 		var position = this.css( "position" ),
@@ -84,7 +71,6 @@ $.fn.extend({
 	}
 });
 
-// selectors
 function focusable( element, isTabIndexNotNaN ) {
 	var map, mapName, img,
 		nodeName = element.nodeName.toLowerCase();
@@ -102,8 +88,8 @@ function focusable( element, isTabIndexNotNaN ) {
 		"a" === nodeName ?
 			element.href || isTabIndexNotNaN :
 			isTabIndexNotNaN) &&
-		// the element and all of its ancestors must be visible
-		visible( element );
+
+			visible( element );
 }
 
 function visible( element ) {
@@ -120,7 +106,6 @@ $.extend( $.expr[ ":" ], {
 				return !!$.data( elem, dataName );
 			};
 		}) :
-		// support: jQuery <1.8
 		function( elem, i, match ) {
 			return !!$.data( elem, match[ 3 ] );
 		},
@@ -136,7 +121,6 @@ $.extend( $.expr[ ":" ], {
 	}
 });
 
-// support: jQuery <1.8
 if ( !$( "<a>" ).outerWidth( 1 ).jquery ) {
 	$.each( [ "Width", "Height" ], function( i, name ) {
 		var side = name === "Width" ? [ "Left", "Right" ] : [ "Top", "Bottom" ],
@@ -183,7 +167,6 @@ if ( !$( "<a>" ).outerWidth( 1 ).jquery ) {
 	});
 }
 
-// support: jQuery <1.8
 if ( !$.fn.addBack ) {
 	$.fn.addBack = function( selector ) {
 		return this.add( selector == null ?
@@ -192,7 +175,6 @@ if ( !$.fn.addBack ) {
 	};
 }
 
-// support: jQuery 1.6.1, 1.6.2 (http://bugs.jquery.com/ticket/9413)
 if ( $( "<a>" ).data( "a-b", "a" ).removeData( "a-b" ).data( "a-b" ) ) {
 	$.fn.removeData = (function( removeData ) {
 		return function( key ) {
@@ -205,7 +187,6 @@ if ( $( "<a>" ).data( "a-b", "a" ).removeData( "a-b" ).data( "a-b" ) ) {
 	})( $.fn.removeData );
 }
 
-// deprecated
 $.ui.ie = !!/msie [\w.]+/.exec( navigator.userAgent.toLowerCase() );
 
 $.fn.extend({
@@ -249,15 +230,8 @@ $.fn.extend({
 		if ( this.length ) {
 			var elem = $( this[ 0 ] ), position, value;
 			while ( elem.length && elem[ 0 ] !== document ) {
-				// Ignore z-index if position is set to a value where z-index is ignored by the browser
-				// This makes behavior of this function consistent across browsers
-				// WebKit always returns auto if the element is positioned
 				position = elem.css( "position" );
 				if ( position === "absolute" || position === "relative" || position === "fixed" ) {
-					// IE returns 0 when zIndex is not specified
-					// other browsers return a string
-					// we ignore the case of nested elements with an explicit value of 0
-					// <div style="z-index: -10;"><div style="z-index: 0;"></div></div>
 					value = parseInt( elem.css( "zIndex" ), 10 );
 					if ( !isNaN( value ) && value !== 0 ) {
 						return value;
@@ -271,7 +245,6 @@ $.fn.extend({
 	}
 });
 
-// $.ui.plugin is deprecated. Use $.widget() extensions instead.
 $.ui.plugin = {
 	add: function( module, option, set ) {
 		var i,
@@ -302,16 +275,6 @@ $.ui.plugin = {
 };
 
 
-/*!
- * jQuery UI Widget 1.11.2
- * http://jqueryui.com
- *
- * Copyright 2014 jQuery Foundation and other contributors
- * Released under the MIT license.
- * http://jquery.org/license
- *
- * http://api.jqueryui.com/jQuery.widget/
- */
 
 
 var widget_uuid = 0,
@@ -323,13 +286,11 @@ $.cleanData = (function( orig ) {
 		for ( i = 0; (elem = elems[i]) != null; i++ ) {
 			try {
 
-				// Only trigger remove when necessary to save time
 				events = $._data( elem, "events" );
 				if ( events && events.remove ) {
 					$( elem ).triggerHandler( "remove" );
 				}
 
-			// http://bugs.jquery.com/ticket/8235
 			} catch ( e ) {}
 		}
 		orig( elems );
@@ -338,8 +299,6 @@ $.cleanData = (function( orig ) {
 
 $.widget = function( name, base, prototype ) {
 	var fullName, existingConstructor, constructor, basePrototype,
-		// proxiedPrototype allows the provided prototype to remain unmodified
-		// so that it can be used as a mixin for multiple widgets (#8876)
 		proxiedPrototype = {},
 		namespace = name.split( "." )[ 0 ];
 
@@ -351,7 +310,6 @@ $.widget = function( name, base, prototype ) {
 		base = $.Widget;
 	}
 
-	// create selector for plugin
 	$.expr[ ":" ][ fullName.toLowerCase() ] = function( elem ) {
 		return !!$.data( elem, fullName );
 	};
@@ -359,32 +317,21 @@ $.widget = function( name, base, prototype ) {
 	$[ namespace ] = $[ namespace ] || {};
 	existingConstructor = $[ namespace ][ name ];
 	constructor = $[ namespace ][ name ] = function( options, element ) {
-		// allow instantiation without "new" keyword
 		if ( !this._createWidget ) {
 			return new constructor( options, element );
 		}
 
-		// allow instantiation without initializing for simple inheritance
-		// must use "new" keyword (the code above always passes args)
 		if ( arguments.length ) {
 			this._createWidget( options, element );
 		}
 	};
-	// extend with the existing constructor to carry over any static properties
 	$.extend( constructor, existingConstructor, {
 		version: prototype.version,
-		// copy the object used to create the prototype in case we need to
-		// redefine the widget later
 		_proto: $.extend( {}, prototype ),
-		// track widgets that inherit from this widget in case this widget is
-		// redefined after a widget inherits from it
 		_childConstructors: []
 	});
 
 	basePrototype = new base();
-	// we need to make the options hash a property directly on the new instance
-	// otherwise we'll modify the options hash on the prototype that we're
-	// inheriting from
 	basePrototype.options = $.widget.extend( {}, basePrototype.options );
 	$.each( prototype, function( prop, value ) {
 		if ( !$.isFunction( value ) ) {

@@ -14,18 +14,8 @@
 
     <title>Chain App Dev - App Landing Page HTML5 Template</title>
 
-    <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-<!--
-
-TemplateMo 570 Chain App Dev
-
-https://templatemo.com/tm-570-chain-app-dev
-
--->
-
-    <!-- Additional CSS Files -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/templatemo-chain-app-dev.css">
     <link rel="stylesheet" href="assets/css/animated.css">
@@ -35,8 +25,7 @@ https://templatemo.com/tm-570-chain-app-dev
 
 <body>
 
-  <!-- ***** Preloader Start ***** -->
-  <div id="js-preloader" class="js-preloader">
+<div id="js-preloader" class="js-preloader">
     <div class="preloader-inner">
       <span class="dot"></span>
       <div class="dots">
@@ -46,38 +35,33 @@ https://templatemo.com/tm-570-chain-app-dev
       </div>
     </div>
   </div>
-  <!-- ***** Preloader End ***** -->
 
-  <!-- ***** Header Area Start ***** -->
   <header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
     <div class="container">
       <div class="row">
         <div class="col-12">
           <nav class="main-nav">
-            <!-- ***** Logo Start ***** -->
             <a href="index.html" class="logo">
               <img src="assets/images/logo2.png" alt="Chain App Dev">
             </a>
-            <!-- ***** Logo End ***** -->
-            <!-- ***** Menu Start ***** -->
+
             <ul class="nav">
               <li class="scroll-to-section"><a href="#top" class="active">Beranda</a></li>
               <li class="scroll-to-section"><a href="#services">PPDB DINDIKBUD</a></li>
               <li class="scroll-to-section"><a href="#about">SI-MADA</a></li>
               <li class="scroll-to-section"><a href="#pricing">RAPOR DAPODIK</a></li>
               <li class="scroll-to-section"><a href="#newsletter">PROGRES ARKAS Arkas</a></li>
+              
               <li><div class="gradient-button"><a id="modal_trigger" href="#modal"><i class="fa fa-sign-in-alt"></i> Ruang Diskusi</a></div></li> 
             </ul>        
             <a class='menu-trigger'>
                 <span>Menu</span>
             </a>
-            <!-- ***** Menu End ***** -->
           </nav>
         </div>
       </div>
     </div>
   </header>
-  <!-- ***** Header Area End ***** -->
   
   <div id="modal" class="popupContainer" style="display:none;">
     <div class="popupHeader">
@@ -86,25 +70,11 @@ https://templatemo.com/tm-570-chain-app-dev
     </div>
 
     <section class="popupBody">
-        <!-- Social Login -->
         <div class="social_login">
             <div class="">
                 <a href="#" class="social_box fb">
                     <span class="icon"><i class="fab fa-facebook"></i></span>
                     <span class="icon_title">Connect with Facebook</span>
-
-                    <div id="fb-root"></div>
-<script>
-   (function(d, s, id) {
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {
-       return;
-     }
-     js = d.createElement(s); js.id = id;
-     js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=APP_ID";
-     fjs.parentNode.insertBefore(js, fjs);
-   } (document, 'script', 'facebook-jssdk'));
-</script>
 
                 </a>
 
@@ -124,7 +94,6 @@ https://templatemo.com/tm-570-chain-app-dev
             </div>
         </div>
 
-        <!-- Username & Password Login form -->
         <div class="user_login">
             <form>
                 <label>Email / Username</label>
@@ -149,7 +118,6 @@ https://templatemo.com/tm-570-chain-app-dev
             <a href="#" class="forgot_password">Forgot password?</a>
         </div>
 
-        <!-- Register Form -->
         <div class="user_register">
             <form>
                 <label>Full Name</label>
@@ -458,7 +426,7 @@ https://templatemo.com/tm-570-chain-app-dev
                                   lorem ipsum dolor sit amet, consectetur picing elit massive big blasta.”</p>
                               </div>
                               <div class="down-content">
-                                <img src="assets/images/client-image.jpg" alt="">
+                                <img src="assets/images/pdi.png" alt="">
                                 <div class="right-content">
                                   <h4>David Martino</h4>
                                   <span>CEO of David Company</span>
@@ -729,7 +697,6 @@ https://templatemo.com/tm-570-chain-app-dev
   </footer>
 
 
-  <!-- Scripts -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/js/owl-carousel.js"></script>
